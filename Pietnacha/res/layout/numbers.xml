@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:numColumns="4" >
+
+        </GridView>
+
+        <TextView
+            android:id="@+id/textRes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"          
+            android:layout_toRightOf="@+id/textV"
+            android:layout_below="@+id/gridView"
+            android:layout_marginLeft="10dp"
+            android:text="@string/n0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  
+            android:layout_below="@+id/gridView"
+            android:layout_alignLeft="@+id/gridView"
+            android:layout_marginLeft="75dp"
+            android:text="@string/yourResult"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>

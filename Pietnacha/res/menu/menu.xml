@@ -1,0 +1,15 @@
+
+	<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	    <item android:id="@+id/nowa"
+	          android:title="@string/newGame" 
+	          android:enabled="true" 
+	          android:visible="true"/>
+	    <item android:id="@+id/najlepszeWyniki"
+	          android:title="@string/bests"
+	          android:enabled="true" 
+	          android:visible="true"/>
+	    <item android:id="@+id/wyjdzZGry"
+	          android:title="@string/quit"
+	          android:visible="true" 
+	          android:enabled="true"/>
+	</menu>
