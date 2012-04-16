@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/myNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:id="@+id/num1"
+                android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"	
+                android:orientation="horizontal" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/num2"
+                android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/num3"
+                android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/num4"
+                android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </TableRow>
+            
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textRes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myNumbers"
+            android:layout_toRightOf="@+id/textV"
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/n0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:layout_alignLeft="@+id/myNumbers"
+            android:layout_below="@+id/myNumbers"
+            android:layout_marginLeft="100dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/yourResult"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>
