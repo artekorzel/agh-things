@@ -4,7 +4,7 @@
 	<property name="build" location="build"/>
 	<property name="doc" location="doc"/>
 	<property name="dist" location="."/>
-	<property name="log4j.dir" location="/usr/share/apache-log4j-1.2.16/log4j-1.2.16.jar"/>
+	<property name="log4j.dir" location="/usr/share/java/log4j-1.2-1.2.15.jar"/>
 
 	<target name="compile">
 		<javac 	srcdir="${src}" 
