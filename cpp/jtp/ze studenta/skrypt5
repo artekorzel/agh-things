@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for PLIK in `ls -a`; do
+	if [ -d $PLIK ]; then
+		OPIS="d"
+	else
+		OPIS="-"
+	fi
+
+	if [ -x $PLIK ]; then
+		OPIS=$OPIS"x"
+	else
+		OPIS=$OPIS"-"
+	fi
+
+	echo "$PLIK $OPIS"
+done
+
+		

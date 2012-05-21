@@ -1,0 +1,47 @@
+program aaa;
+var
+a,b,c,d:integer;
+e,f,x:int64;
+
+begin
+read(x);
+ a:=2;
+ while(a<x) do
+ begin
+  c:=1;
+  e:=0;
+
+  while(c<a)do
+  begin
+   if a mod c = 0 then
+   e:=e+c;
+   c:=c+1;
+  end;
+ b:=2;
+  while(b<x) do
+  begin
+   d:=1;
+   f:=0;
+
+   while(d<b)do
+   begin
+    if b mod d = 0 then
+    f:=f+d;
+    d:=d+1;
+   end;
+
+   if a<>b then begin
+    if a=f then begin
+     if b=e then writeln(a,' - ',b);
+     end;
+    end;
+
+   b:=b+1;
+  end;
+
+ a:=a+1;
+ end;
+
+ write('koniec');
+ read(f);
+ end.

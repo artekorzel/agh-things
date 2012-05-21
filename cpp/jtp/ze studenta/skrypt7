@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	echo -n "podaj kat "
+	read KAT
+else 
+	KAT=$1
+fi
+
+if [ -d $KAT ]; then
+	WART=0
+	HEH=`cd $KAT | ls -l | awk '{print $8}'`
+	for HIH	in $HEH; do
+		if [ -r ./$HIH ]; then
+			WWW=`ls -l | awk '{print $8 " " $5}'| grep "^$HIH " | awk '{print $2}'`
+			WART=`expr $WART + $WWW`
+		fi
+	done
+	echo "$WART"
+else
+	echo "nie katalog"
+fi
+

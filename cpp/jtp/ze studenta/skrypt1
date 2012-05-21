@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+if [ $# = 0 ]; then
+	echo "brak arg"
+else
+	I=$*
+	K="1"
+	for J in $I; do
+		echo "arg nr $K to $J "
+		K=`expr $K + 1`
+	done
+fi
+
+

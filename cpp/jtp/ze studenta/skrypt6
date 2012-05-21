@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	echo -n "podaj arg "
+	read ARG
+else
+	ARG=$1
+fi
+
+renice 5 -u $ARG
+

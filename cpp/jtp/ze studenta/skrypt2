@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while [ 1 ]; do
+	echo `ps aux | wc -l`
+	sleep 3
+done
+

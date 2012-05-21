@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while [ 1 ]; do
+KTO=`who | awk '{print $1}'`
+
+for JEDEN in $KTO; do
+	OPIS=`cat /etc/passwd | cut -d: -f1,5 | grep "^$JEDEN:" | cut -d: -f2`
+	if [ "$OPIS" ]; then
+		echo "$JEDEN $OPIS"
+	else
+		echo "$JEDEN brak opisu"
+	fi
+done
+sleep 10
+done
+

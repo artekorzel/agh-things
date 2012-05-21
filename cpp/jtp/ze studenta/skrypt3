@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	read IDENT
+else
+	IDENT=$*
+fi	
+
+for US in $IDENT; do
+OPIS=`cat /etc/passwd | cut -d: -f3,5 | grep "^$US:" | cut -d: -f2`
+if [ "$OPIS" ]; then
+	echo "$US $OPIS"
+else
+	echo "brak opisu"
+fi
+done
+
