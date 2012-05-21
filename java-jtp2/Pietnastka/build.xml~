@@ -1,0 +1,42 @@
+<project name="Pietnastka" default="run">
+	<property name="src" location="pietnastka"/>
+	<property name="build" location="build"/>
+	<property name="doc" location="doc"/>
+	<property name="dist" location="."/>
+
+	<target name="compile">
+		<mkdir dir="${build}"/>
+		<javac srcdir="${src}" destdir="${build}" includeAntRuntime="false"/> 
+	</target>
+	
+	<target name="langs">
+		<copy todir="${build}">
+			<fileset dir=".">
+				<include name="*.properties"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="jar" depends="langs, compile">	
+		<jar destfile="${dist}/Pietnastka.jar">
+			<fileset dir="${build}" includes="**/*.class, *.properties"/>
+			<manifest>
+				<attribute name="Main-Class" value="pietnastka.Pietnastka"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run" depends="jar">
+        <java jar="${dist}/Pietnastka.jar" fork="true">
+  			<sysproperty key="java.util.logging.config.file" value="./log.conf" />		
+		</java>
+    </target>
+	
+	<target name="doc">
+		<mkdir dir="${doc}"/>
+      	<javadoc packagenames="pietnastka"
+        	sourcepath="."
+        	charset="UTF-8"
+        	destdir="doc"/>
+    </target>
+</project>

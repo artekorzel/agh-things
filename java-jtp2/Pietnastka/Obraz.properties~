@@ -1,0 +1,18 @@
+ramka=Piętnastka
+plikMenu=Plik
+pomocMenu=Pomoc
+graStandardowaPlikMenu=Gra Standardowa
+wczytajObrazPlikMenu=Wczytaj Obraz
+zakonczPlikMenu=Zakończ
+oPomocMenu=O...
+zasadyGryPomocMenu=Zasady Gry
+oPomocMenuInf=Gra Piętnastka.\nAutor: Artur Orzeł\nUwagi proszę przesyłać na: aorzel@student.agh.edu.pl
+etykietaWyniku=Twój Wynik
+przyciskRozpoczeciaOdNowa=Zacznij od nowa
+wygralesNaglowek=Wygrałeś!
+wygralesOpis=Gratulacje! Wygrałeś wynikiem:
+zasadyGraStdNagl=Gra Standardowa:
+zasadyGraStd=Przesuwając klocki sąsiadujące z pus-\ntym polem, ułóż wszystkie kolejno od 1\n   do 15, od lewej do prawej i od góry\n   do dołu, pozostawiając wolne pole\n            w prawym dolnym rogu.
+wczytanieObrNagl=Wczytanie Obrazka:
+wczytanieObr=Wybierz obrazek w formacie JPG, a nas-\ntępnie przesuwając klocki sąsiadujące\n z pustym polem, ułóż obrazek zgodnie\n  ze wzorem po prawej, pozostawiając\n   puste pole w prawym dolnym rogu.
+
