@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Biblioteka Sync: Dokumentacja pliku sync.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Biblioteka Sync
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Biblioteka wspomagająca analizę rozwiązań problemów synchronizacyjnych</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku sync.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;stdarg.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;fcntl.h&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;dirent.h&gt;</code><br/>
+<code>#include &lt;sys/types.h&gt;</code><br/>
+<code>#include &lt;sys/ipc.h&gt;</code><br/>
+<code>#include &lt;sys/shm.h&gt;</code><br/>
+<code>#include &lt;sys/sem.h&gt;</code><br/>
+<code>#include &lt;sys/stat.h&gt;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
+<code>#include &lt;sys/time.h&gt;</code><br/>
+<code>#include &lt;sys/times.h&gt;</code><br/>
+<code>#include &lt;sys/resource.h&gt;</code><br/>
+<code>#include &lt;sys/syscall.h&gt;</code><br/>
+<code>#include &lt;signal.h&gt;</code><br/>
+<code>#include &lt;errno.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="sync_8h_source.html">sync.h</a>&quot;</code><br/>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a08f7f5922cfc08545454b3b0414f9342">stworz_semafory</a> (<a class="el" href="structsemafor__t.html">semafor_t</a> *semafor, int liczba, int ident, int ile_inicjalizowanych,...)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#af6b16d698f4443689276a2cb57170748">zmien_semafory</a> (<a class="el" href="structsemafor__t.html">semafor_t</a> *semafor, struct sembuf *sops, int nsops)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#ad864d4424559757e6b3de89a5ca15e95">usun_semafory</a> (<a class="el" href="structsemafor__t.html">semafor_t</a> *semafor)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a2efe3214669f1806d22cd500e1ff0dc3">stworz_pamiec</a> (<a class="el" href="structpamiec__t.html">pamiec_t</a> *pamiec, int rozmiar, int ident, int czy_podlaczyc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a02ed45ffcb6ba5cb27bbf46331d696ab">zwolnij_pamiec</a> (<a class="el" href="structpamiec__t.html">pamiec_t</a> *pamiec, int czy_usunac)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#af478826b729b83865e25760e60c759d8">stworz_watek</a> (<a class="el" href="sync_8h.html#a3a26a69d669ad2bdd81bbb149e43e89e">watek_t</a> *watek, int czy_odlaczony, void *(*funkcja)(void *), void *arg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a344b211dc172584d2badcf878a8970f5">stworz_staty</a> (<a class="el" href="structstaty__t.html">staty_t</a> *staty, char *nazwa, char *katalog)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a61a9f92231dd530cc5f84eba2a6cf447">log_staty</a> (<a class="el" href="structstaty__t.html">staty_t</a> *staty, char *opis)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a6f0bf178966081cc4633c0b914bec3a2">zakoncz_staty</a> (<a class="el" href="structstaty__t.html">staty_t</a> *staty)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a3eb74dd875b4bee0dec40d7ffb23cc9e">analizuj_staty</a> (char *sciezka, char *sciezka_logu_ost)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sync_8c.html#a8dd9495992b460992d76cb07f5d81bba">error2str</a> (int error)</td></tr>
+</table>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="a3eb74dd875b4bee0dec40d7ffb23cc9e"></a><!-- doxytag: member="sync.c::analizuj_staty" ref="a3eb74dd875b4bee0dec40d7ffb23cc9e" args="(char *sciezka, char *sciezka_logu_ost)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a3eb74dd875b4bee0dec40d7ffb23cc9e">analizuj_staty</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sciezka</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sciezka_logu_ost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Analizuje pliki ze statystykami. Wypisuje na standardowe wyjście informacje o rodzaju i numerze wątku/procesu, liczbie prób wejścia, wejść i wyjść z sekcji krytycznej, czasach łącznych i średnich oczekiwania na wejście i spędzonych w sekcji krytycznej. Ponadto dane te zapisuje w postaci prostej tabeli w nowym pliku, dzięki czemu można je wykorzystać do tworzenia np. wykresów.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sciezka</td><td>Ścieżka do katalogu z plikami ze statystykami. </td></tr>
+    <tr><td class="paramname">sciezka_logu_ost</td><td>Ścieżka do nieistniejącego bądź niepotrzebnego pliku, w którym zostanie umieszczona tabela z wymienionymi informacjami - plik ten NIE MOŻE znajdować się w katalogu podanym w argumencie sciezka.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8dd9495992b460992d76cb07f5d81bba"></a><!-- doxytag: member="sync.c::error2str" ref="a8dd9495992b460992d76cb07f5d81bba" args="(int error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="sync_8h.html#a8dd9495992b460992d76cb07f5d81bba">error2str</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zamienia numer błędu na jego reprezentację w postaci c-stringu.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>Numer błędu.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest reprezentacja błędu w postaci c-stringu, w przeciwnym wypadku - c-string "NIEZNANY_ERR". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a61a9f92231dd530cc5f84eba2a6cf447"></a><!-- doxytag: member="sync.c::log_staty" ref="a61a9f92231dd530cc5f84eba2a6cf447" args="(staty_t *staty, char *opis)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a61a9f92231dd530cc5f84eba2a6cf447">log_staty</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstaty__t.html">staty_t</a> *&#160;</td>
+          <td class="paramname"><em>staty</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>opis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zapisuje do pliku ze statystykami aktualny czas i opis sytuacji.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">staty</td><td>Wskaznik na strukturę danych z informacjami o pliku statystyk. </td></tr>
+    <tr><td class="paramname">opis</td><td>Jednolinijkowy opis sytuacji użycia - zalecane jest używanie w tym celu stałych znakowych: TRY, IN, OUT - użycie innych prawdopodobnie spowoduje, że konieczna będzie własnoręczna implementacja funkcji analizującej statystyki.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2efe3214669f1806d22cd500e1ff0dc3"></a><!-- doxytag: member="sync.c::stworz_pamiec" ref="a2efe3214669f1806d22cd500e1ff0dc3" args="(pamiec_t *pamiec, int rozmiar, int ident, int czy_podlaczyc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a2efe3214669f1806d22cd500e1ff0dc3">stworz_pamiec</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpamiec__t.html">pamiec_t</a> *&#160;</td>
+          <td class="paramname"><em>pamiec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rozmiar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ident</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>czy_podlaczyc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tworzy nową bądź podłącza do istniejącej pamięci wspólnej.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pamiec</td><td>Wskaźnik na strukturę opisującą pamięć wspólną. </td></tr>
+    <tr><td class="paramname">rozmiar</td><td>Rozmiar pamięci wspólnej, jeśli 0 to znaczy, że pamięć już została utworzona w systemie i następuje tylko jej pobranie. </td></tr>
+    <tr><td class="paramname">ident</td><td>Identyfikator pamięci wspólnej. </td></tr>
+    <tr><td class="paramname">czy_podlaczyc</td><td>Jeśli równe 0, to pamięć nie zostanie przydzielona, w przeciwnym wypadku - tak.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a08f7f5922cfc08545454b3b0414f9342"></a><!-- doxytag: member="sync.c::stworz_semafory" ref="a08f7f5922cfc08545454b3b0414f9342" args="(semafor_t *semafor, int liczba, int ident, int ile_inicjalizowanych,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a08f7f5922cfc08545454b3b0414f9342">stworz_semafory</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsemafor__t.html">semafor_t</a> *&#160;</td>
+          <td class="paramname"><em>semafor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>liczba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ident</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ile_inicjalizowanych</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tworzy zbiór semaforów o wskazanym identyfikatorze.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semafor</td><td>Wskaźnik na strukturę opisującą zbiór semaforów. </td></tr>
+    <tr><td class="paramname">liczba</td><td>Liczba określająca, ile semaforów ma zaiwerać zbiór. </td></tr>
+    <tr><td class="paramname">ident</td><td>Identyfikator zbioru semaforów. </td></tr>
+    <tr><td class="paramname">ile_inicjalizowanych</td><td>Liczba określająca, ile semaforów ma zostać zainicjalizowanych - po tym argumencie następuje ciąg liczb, które będą przypisane do kolejnych semaforów.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a344b211dc172584d2badcf878a8970f5"></a><!-- doxytag: member="sync.c::stworz_staty" ref="a344b211dc172584d2badcf878a8970f5" args="(staty_t *staty, char *nazwa, char *katalog)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a344b211dc172584d2badcf878a8970f5">stworz_staty</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstaty__t.html">staty_t</a> *&#160;</td>
+          <td class="paramname"><em>staty</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nazwa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>katalog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tworzy wszelkie potrzebne dane (w tym plik ze statystykami) do logowania danych statystycznych.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">staty</td><td>Wskaznik na strukturę danych z informacjami o pliku statystyk. </td></tr>
+    <tr><td class="paramname">nazwa</td><td>Krótka nazwa określająca rodzaj wątku/procesu. </td></tr>
+    <tr><td class="paramname">katalog</td><td>Ścieżka katalogu, w którym zapisany zostanie plik ze statystykami.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af478826b729b83865e25760e60c759d8"></a><!-- doxytag: member="sync.c::stworz_watek" ref="af478826b729b83865e25760e60c759d8" args="(watek_t *watek, int czy_odlaczony, void *(*funkcja)(void *), void *arg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#af478826b729b83865e25760e60c759d8">stworz_watek</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sync_8h.html#a3a26a69d669ad2bdd81bbb149e43e89e">watek_t</a> *&#160;</td>
+          <td class="paramname"><em>watek</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>czy_odlaczony</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *(*)(void *)&#160;</td>
+          <td class="paramname"><em>funkcja</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tworzy i uruchamia wątek.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">watek</td><td>Wskaznik na watek - typu równoważnego pthread_t. </td></tr>
+    <tr><td class="paramname">czy_odlaczony</td><td>Jeśli równe 0, to wątek nie zostanie odłączony, w przeciwnym wypadku - tak. </td></tr>
+    <tr><td class="paramname">funkcja</td><td>Wskaźnik na funkcję, która ma być wykonywana przez wątek. </td></tr>
+    <tr><td class="paramname">arg</td><td>Argumenty przekazywane funkcji wykonania wątku.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad864d4424559757e6b3de89a5ca15e95"></a><!-- doxytag: member="sync.c::usun_semafory" ref="ad864d4424559757e6b3de89a5ca15e95" args="(semafor_t *semafor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#ad864d4424559757e6b3de89a5ca15e95">usun_semafory</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsemafor__t.html">semafor_t</a> *&#160;</td>
+          <td class="paramname"><em>semafor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Usuwa zbiór semaforów z pamięci.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semafor</td><td>Wskaźnik na strukturę opisującą zbiór semaforów.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6f0bf178966081cc4633c0b914bec3a2"></a><!-- doxytag: member="sync.c::zakoncz_staty" ref="a6f0bf178966081cc4633c0b914bec3a2" args="(staty_t *staty)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a6f0bf178966081cc4633c0b914bec3a2">zakoncz_staty</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstaty__t.html">staty_t</a> *&#160;</td>
+          <td class="paramname"><em>staty</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zapisuje do pliku ze statystykami aktualny czas i informację o zakończeniu statystyk i zamyka plik ze statystykami.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">staty</td><td>Wskaznik na strukturę danych z informacjami o pliku statystyk.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af6b16d698f4443689276a2cb57170748"></a><!-- doxytag: member="sync.c::zmien_semafory" ref="af6b16d698f4443689276a2cb57170748" args="(semafor_t *semafor, struct sembuf *sops, int nsops)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#af6b16d698f4443689276a2cb57170748">zmien_semafory</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsemafor__t.html">semafor_t</a> *&#160;</td>
+          <td class="paramname"><em>semafor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct sembuf *&#160;</td>
+          <td class="paramname"><em>sops</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nsops</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zmienia stan zbioru semaforów.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">semafor</td><td>Wskaźnik na strukturę opisującą zbiór semaforów. </td></tr>
+    <tr><td class="paramname">sops</td><td>Tablica struktur sembuf opisujących zmiany w zbiorze semaforów. </td></tr>
+    <tr><td class="paramname">nsops</td><td>Liczba elementów tablicy sops.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a02ed45ffcb6ba5cb27bbf46331d696ab"></a><!-- doxytag: member="sync.c::zwolnij_pamiec" ref="a02ed45ffcb6ba5cb27bbf46331d696ab" args="(pamiec_t *pamiec, int czy_usunac)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="sync_8h.html#a02ed45ffcb6ba5cb27bbf46331d696ab">zwolnij_pamiec</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structpamiec__t.html">pamiec_t</a> *&#160;</td>
+          <td class="paramname"><em>pamiec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>czy_usunac</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Zwalnia i ewentualnie usuwa istniejącą pamięć wspólną.</p>
+<dl class="params"><dt><b>Parametry:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pamiec</td><td>Wskaźnik na strukturę opisującą pamięć wspólną. </td></tr>
+    <tr><td class="paramname">czy_usunac</td><td>Jeśli równe 0, to pamięć nie zostanie usunięta, w przeciwnym wypadku - tak.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>W przypadku powodzenia zwracana jest wartość SUKCES, w przeciwnym wypadku - numer błędu. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Struktury Danych</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicje typów</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Wed Jun 20 2012 11:29:05 dla Biblioteka Sync programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

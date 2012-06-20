@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Biblioteka Sync: Plik źródłowy sync.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Biblioteka Sync
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Biblioteka wspomagająca analizę rozwiązań problemów synchronizacyjnych</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Wygenerowano przez Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Globalne</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">sync.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="sync_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __SYNC_H__</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __SYNC_H__</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include&lt;sys/types.h&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include&lt;sys/sem.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include&lt;sys/resource.h&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00011"></a><a class="code" href="sync_8h.html#af2d23690de42daef3297e70e8f9d53ec">00011</a> <span class="preprocessor">#define LOG_NAZWA &quot;log&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00016"></a><a class="code" href="sync_8h.html#aa84d01c3972319c762253f279f680407">00016</a> <span class="preprocessor">#define DL_NAZWY 50</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span>
+<a name="l00021"></a><a class="code" href="sync_8h.html#aeb59ae192c826af610434df55059ffa2">00021</a> <span class="preprocessor">#define DL_SCIEZKI 120</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00026"></a><a class="code" href="sync_8h.html#ab3bb2c4a1622e2f6ae128b969966e848">00026</a> <span class="preprocessor">#define BUFOR 100</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00031"></a><a class="code" href="sync_8h.html#a3018c7600b7bb9866400596a56a57af7">00031</a> <span class="preprocessor">#define START &quot;START&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00036"></a><a class="code" href="sync_8h.html#ad2746371528bdf15c3910b7bf217dac0">00036</a> <span class="preprocessor">#define TRY &quot;TRY&quot;</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00041"></a><a class="code" href="sync_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">00041</a> <span class="preprocessor">#define IN &quot;IN&quot;</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00046"></a><a class="code" href="sync_8h.html#aec78e7a9e90a406a56f859ee456e8eae">00046</a> <span class="preprocessor">#define OUT &quot;OUT&quot;</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00051"></a><a class="code" href="sync_8h.html#ae19b6bb2940d2fbe0a79852b070eeafd">00051</a> <span class="preprocessor">#define STOP &quot;STOP&quot;</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span>
+<a name="l00056"></a><a class="code" href="sync_8h.html#a4f9388b8421b1798fc498669d80ced45">00056</a> <span class="preprocessor">#define SUKCES 0</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00061"></a><a class="code" href="sync_8h.html#ae269629d86780322c33e1a811f874e79">00061</a> <span class="preprocessor">#define ARG_ERR 1</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span>
+<a name="l00066"></a><a class="code" href="sync_8h.html#a4239636c43725defc816121f6eb5f115">00066</a> <span class="preprocessor">#define TWORZENIE_ERR 2</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00071"></a><a class="code" href="sync_8h.html#af703f6cc83c7807ff379469297d72cf5">00071</a> <span class="preprocessor">#define POBRANIE_ERR 3</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>
+<a name="l00076"></a><a class="code" href="sync_8h.html#a3a86cdf09787c3c4fdb3cbd0e688b17a">00076</a> <span class="preprocessor">#define INICJALIZACJA_ERR 4</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
+<a name="l00081"></a><a class="code" href="sync_8h.html#af59df137edbbe7a2cf8f3f2539f5f4bc">00081</a> <span class="preprocessor">#define USUNIECIE_ERR 5</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00086"></a><a class="code" href="sync_8h.html#afc11c215fd10317635ea580821a40320">00086</a> <span class="preprocessor">#define USUNIECIE_PLIKU_ERR 6</span>
+<a name="l00087"></a>00087 <span class="preprocessor"></span>
+<a name="l00091"></a><a class="code" href="sync_8h.html#abcd9b75768472e46e783f444832708bd">00091</a> <span class="preprocessor">#define ZMIANA_ERR 7</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>
+<a name="l00096"></a><a class="code" href="sync_8h.html#ae1f973a6e72d711505c84bed3fbc3b77">00096</a> <span class="preprocessor">#define ODLACZENIE_ERR 8</span>
+<a name="l00097"></a>00097 <span class="preprocessor"></span>
+<a name="l00101"></a><a class="code" href="sync_8h.html#acd42afb25f3ae20b3d4ade1ec2001be5">00101</a> <span class="preprocessor">#define LOGI_ERR 9</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>
+<a name="l00106"></a><a class="code" href="sync_8h.html#a96fad55b3f5adf08c39e4c877cf185e3">00106</a> <span class="preprocessor">#define LOG_ERR 10</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span>
+<a name="l00111"></a><a class="code" href="sync_8h.html#ab702a269eedc622f4e766eb1fe19b08c">00111</a> <span class="preprocessor">#define ODCZYT_ERR 11</span>
+<a name="l00112"></a>00112 <span class="preprocessor"></span>
+<a name="l00116"></a><a class="code" href="sync_8h.html#a6e47b78839ec652ba8432add33fe3398">00116</a> <span class="preprocessor">#define SYGNALY_ERR 12</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span>
+<a name="l00121"></a><a class="code" href="structsemafor__t.html">00121</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00122"></a>00122 {
+<a name="l00126"></a><a class="code" href="structsemafor__t.html#a59b28104b9fdf7cc3c3aa6d8661db3c2">00126</a>     <span class="keywordtype">int</span> <a class="code" href="structsemafor__t.html#a59b28104b9fdf7cc3c3aa6d8661db3c2">sem_id</a>;
+<a name="l00130"></a><a class="code" href="structsemafor__t.html#ad64307fd8664d00ab1077e57feee11fe">00130</a>     <span class="keywordtype">int</span> <a class="code" href="structsemafor__t.html#ad64307fd8664d00ab1077e57feee11fe">ile_sem</a>;
+<a name="l00134"></a><a class="code" href="structsemafor__t.html#a5f0975333103a651852ff23d72b83e2d">00134</a>     <span class="keywordtype">char</span> sem_nazwa[<a class="code" href="sync_8h.html#aa84d01c3972319c762253f279f680407">DL_NAZWY</a>];
+<a name="l00135"></a>00135 } <a class="code" href="structsemafor__t.html">semafor_t</a>;
+<a name="l00136"></a>00136 
+<a name="l00140"></a><a class="code" href="structpamiec__t.html">00140</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00141"></a>00141 {
+<a name="l00145"></a><a class="code" href="structpamiec__t.html#a2cc2ff9ed0b1619a8fb67a70185d5940">00145</a>     <span class="keywordtype">int</span> <a class="code" href="structpamiec__t.html#a2cc2ff9ed0b1619a8fb67a70185d5940">pam_id</a>;
+<a name="l00149"></a><a class="code" href="structpamiec__t.html#a542c676a7a27bff526b48eca9cd2b105">00149</a>     <span class="keywordtype">int</span> <a class="code" href="structpamiec__t.html#a542c676a7a27bff526b48eca9cd2b105">rozmiar_pam</a>;
+<a name="l00153"></a><a class="code" href="structpamiec__t.html#a8a8e268ac2466f688fe68440476bd39c">00153</a>     <span class="keywordtype">char</span> pam_nazwa[<a class="code" href="sync_8h.html#aa84d01c3972319c762253f279f680407">DL_NAZWY</a>];
+<a name="l00157"></a><a class="code" href="structpamiec__t.html#a800c416ebbdc471b101ff316fc9d1e3c">00157</a>     <span class="keywordtype">void</span> * <a class="code" href="structpamiec__t.html#a800c416ebbdc471b101ff316fc9d1e3c">pam_adres</a>;
+<a name="l00158"></a>00158 } <a class="code" href="structpamiec__t.html">pamiec_t</a>;
+<a name="l00159"></a>00159 
+<a name="l00163"></a><a class="code" href="sync_8h.html#a9a7a5422322fc4fef03cc72916a3d898">00163</a> <span class="keyword">typedef</span> pthread_cond_t <a class="code" href="sync_8h.html#a9a7a5422322fc4fef03cc72916a3d898">monitor_t</a>;
+<a name="l00164"></a>00164 
+<a name="l00168"></a><a class="code" href="sync_8h.html#aa3a0af2021defb226f972ec12b9289ab">00168</a> <span class="keyword">typedef</span> pthread_rwlock_t <a class="code" href="sync_8h.html#aa3a0af2021defb226f972ec12b9289ab">rwlock_t</a>;
+<a name="l00169"></a>00169 
+<a name="l00173"></a><a class="code" href="sync_8h.html#a6bfdd7a014fe4d4d6c392df201d822dd">00173</a> <span class="keyword">typedef</span> pthread_mutex_t <a class="code" href="sync_8h.html#a6bfdd7a014fe4d4d6c392df201d822dd">mutex_t</a>;
+<a name="l00174"></a>00174 
+<a name="l00178"></a><a class="code" href="sync_8h.html#a3a26a69d669ad2bdd81bbb149e43e89e">00178</a> <span class="keyword">typedef</span> pthread_t <a class="code" href="sync_8h.html#a3a26a69d669ad2bdd81bbb149e43e89e">watek_t</a>;
+<a name="l00179"></a>00179 
+<a name="l00183"></a><a class="code" href="structstaty__t.html">00183</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00184"></a>00184 {
+<a name="l00188"></a><a class="code" href="structstaty__t.html#ae02f7c0bf1da4694e0bccdf21fdfbcf5">00188</a>     FILE * <a class="code" href="structstaty__t.html#ae02f7c0bf1da4694e0bccdf21fdfbcf5">log</a>;
+<a name="l00192"></a><a class="code" href="structstaty__t.html#a7ff93e5319ef17488caecb3715c6fba2">00192</a>     <span class="keywordtype">char</span> log_nazwa[<a class="code" href="sync_8h.html#aeb59ae192c826af610434df55059ffa2">DL_SCIEZKI</a>];
+<a name="l00196"></a><a class="code" href="structstaty__t.html#a257a3f9adbc8427500900e81a634b70a">00196</a>     pid_t <a class="code" href="structstaty__t.html#a257a3f9adbc8427500900e81a634b70a">tid</a>;
+<a name="l00197"></a>00197 } <a class="code" href="structstaty__t.html">staty_t</a>;
+<a name="l00198"></a>00198 
+<a name="l00199"></a>00199 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a08f7f5922cfc08545454b3b0414f9342">stworz_semafory</a>(<a class="code" href="structsemafor__t.html">semafor_t</a> * semafor, <span class="keywordtype">int</span> liczba, <span class="keywordtype">int</span> ident, 
+<a name="l00200"></a>00200         <span class="keywordtype">int</span> ile_inicjalizowanych, ...);
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#af6b16d698f4443689276a2cb57170748">zmien_semafory</a>(<a class="code" href="structsemafor__t.html">semafor_t</a> * semafor, <span class="keyword">struct</span> sembuf * sops, <span class="keywordtype">int</span> nsops);
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#ad864d4424559757e6b3de89a5ca15e95">usun_semafory</a>(<a class="code" href="structsemafor__t.html">semafor_t</a> * semafor);
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a2efe3214669f1806d22cd500e1ff0dc3">stworz_pamiec</a>(<a class="code" href="structpamiec__t.html">pamiec_t</a> * pamiec, <span class="keywordtype">int</span> rozmiar, <span class="keywordtype">int</span> ident, <span class="keywordtype">int</span> czy_podlaczyc);
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a02ed45ffcb6ba5cb27bbf46331d696ab">zwolnij_pamiec</a>(<a class="code" href="structpamiec__t.html">pamiec_t</a> * pamiec, <span class="keywordtype">int</span> czy_usunac);
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#af478826b729b83865e25760e60c759d8">stworz_watek</a>(<a class="code" href="sync_8h.html#a3a26a69d669ad2bdd81bbb149e43e89e">watek_t</a> * watek, <span class="keywordtype">int</span> czy_odlaczony, <span class="keywordtype">void</span> * (*funkcja) (<span class="keywordtype">void</span> *), <span class="keywordtype">void</span> * arg);
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a344b211dc172584d2badcf878a8970f5">stworz_staty</a>(<a class="code" href="structstaty__t.html">staty_t</a> * staty, <span class="keywordtype">char</span> * nazwa, <span class="keywordtype">char</span> * katalog);
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a61a9f92231dd530cc5f84eba2a6cf447">log_staty</a>(<a class="code" href="structstaty__t.html">staty_t</a> * staty, <span class="keywordtype">char</span> * opis);
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a6f0bf178966081cc4633c0b914bec3a2">zakoncz_staty</a>(<a class="code" href="structstaty__t.html">staty_t</a> * staty);
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 <span class="keywordtype">int</span> <a class="code" href="sync_8c.html#a3eb74dd875b4bee0dec40d7ffb23cc9e">analizuj_staty</a>(<span class="keywordtype">char</span> * sciezka, <span class="keywordtype">char</span> * sciezka_logu_ost);
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220 <span class="keywordtype">char</span> * <a class="code" href="sync_8c.html#a8dd9495992b460992d76cb07f5d81bba">error2str</a>(<span class="keywordtype">int</span> error);
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Struktury Danych</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicje typów</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Wed Jun 20 2012 11:29:05 dla Biblioteka Sync programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>
