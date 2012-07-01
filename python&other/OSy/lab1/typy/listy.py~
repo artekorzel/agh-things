@@ -1,0 +1,22 @@
+import sys
+from typy2 import kubelki1
+
+def sortuj():
+    for s in sys.argv[1:]:
+        i=int(float(s))
+        if i not in kubelki1:
+        	kubelki1.append(i)
+        	kubelki1.append([])
+        kubelki1[kubelki1.index(i)+1].append(float(s))       
+    for k in range(1,len(kubelki1),2):
+        kubelki1[k].sort()
+
+def wypisz():
+    for i in range(1,len(kubelki1),2):
+        print kubelki1[i]
+    znacznikiKubelkow=kubelki1[::2]
+    znacznikiKubelkow.sort()
+    for i in znacznikiKubelkow:
+    	for j in kubelki1[kubelki1.index(i)+1]:
+    		print j
+
