@@ -105,7 +105,7 @@ void * producent(void * arg)
 		if((i = log_staty(&statystyki[id],TRY)) != SUKCES)
 			ERR2(error2str(i),9)
 				
-		if(*ile == TABLICA)
+		while(*ile == TABLICA)
 			if(pthread_cond_wait(&producenci, &mutex))
 				ERR2("Blad pthread_cond_wait",10)
 		
@@ -169,7 +169,7 @@ void * konsument(void * arg)
 		if((i = log_staty(&statystyki[id],TRY)) != SUKCES)
 			ERR2(error2str(i),19)
 
-		if(*ile == 0)
+		while(*ile == 0)
 			if(pthread_cond_wait(&konsumenci, &mutex))
 				ERR2("Blad pthread_cond_wait",20)
 		

@@ -140,7 +140,7 @@ void * samolot(void * arg)
 		if(pthread_mutex_lock(&lotniskowiec))
 			ERR2("Blad pthread_mutex_lock.\n",17)
 		
-		if(!wolny)
+		while(!wolny)
 			if(pthread_cond_wait(&start, &lotniskowiec))
 				ERR2("Blad pthread_cond_wait",12)
 		
@@ -185,7 +185,7 @@ void * samolot(void * arg)
 		if(pthread_mutex_lock(&lotniskowiec))
 			ERR2("Blad pthread_mutex_lock.\n",17)
 		
-		if(!wolny || na_lotniskowcu == N_SAM)
+		while(!wolny || na_lotniskowcu == N_SAM)
 			if(pthread_cond_wait(&ladowanie, &lotniskowiec))
 				ERR2("Blad pthread_cond_wait",12)
 		

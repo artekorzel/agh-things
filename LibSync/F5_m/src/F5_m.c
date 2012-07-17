@@ -101,7 +101,7 @@ void * filozof(void * arg)
 		if((i = log_staty(&statystyki[id],"TRY")) != SUKCES)
 			ERR2(error2str(i),11)
 				
-		if(dopuszczeni == 4)
+		while(dopuszczeni == 4)
 			if(pthread_cond_wait(&lokaj, &widelce))
 				ERR2("Blad pthread_cond_wait",12)
 		dopuszczeni += 1;
