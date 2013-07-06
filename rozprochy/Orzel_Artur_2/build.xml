@@ -1,0 +1,107 @@
+<project name="TicTacToeRMI" default="dist">	
+	<property name="public-jar-value" value="file:/home/artur/WORKSPACE/TicTacToeRMI"/>
+	<property name="server-address-value" value="127.0.0.1"/>
+	<property name="server-port-value" value="1099"/>
+	<property name="server-name-value" value="server"/>
+	
+	<property name="public-jar-property" value="publicPath"/>
+	<property name="server-address-property" value="rmiServerAddress"/>
+	<property name="server-port-property" value="rmiServerPort"/>
+	<property name="server-name-property" value="rmiServerName"/>
+	
+	<property name="public" value="publ"/>
+	<property name="server" value="server"/>
+	<property name="client" value="client"/>
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="public-dist" value="public_dist"/>
+	<property name="server-dist" value="server_dist"/>
+	<property name="client-dist" value="client_dist"/>
+
+	<property name="client-main" value="${client}.TicTacToeClient"/>
+	<property name="server-main" value="${server}.TicTacToeServer"/>
+
+	<property name="public-jar" value="${ant.project.name}-${public}.jar"/>
+	<property name="client-jar" value="${ant.project.name}-${client}.jar"/>
+	<property name="server-jar" value="${ant.project.name}-${server}.jar"/>
+
+	<target name="clean">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="clean-all" depends="clean">
+		<delete dir="${client-dist}"/>
+		<delete dir="${server-dist}"/>
+		<delete dir="${public-dist}"/>
+	</target>
+
+	<target name="pre-build" depends="clean">
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="pre-dist" depends="clean-all, pre-build">
+		<mkdir dir="${server-dist}"/>
+		<mkdir dir="${client-dist}"/>
+		<mkdir dir="${public-dist}"/>
+	</target>
+
+	<target name="compile" depends="pre-build">
+		<javac srcdir="${src}" destdir="${build}" includeAntRuntime="false"/>
+	</target>
+
+	<target name="jar" depends="compile, pre-dist">
+		<jar destfile="${build}/${public-jar}">
+			<fileset dir="${build}" includes="${public}/*.class"/>
+		</jar>
+		<jar destfile="${build}/${server-jar}">
+			<fileset dir="${build}" includes="${server}/*.class"/>
+			<manifest>
+			    <attribute name="Main-Class" value="${server-main}"/>
+			    <attribute name="Class-Path" value="${public-jar}"/>
+			</manifest>
+		</jar>
+		<jar destfile="${build}/${client-jar}">
+			<fileset dir="${build}" includes="${client}/*.class"/>
+			<manifest>
+			    <attribute name="Main-Class" value="${client-main}"/>
+			    <attribute name="Class-Path" value="${public-jar}"/>
+			</manifest>
+		</jar>
+		<touch file="${build}/properties.conf"/>
+	</target>
+	<target name="dist" depends="jar">
+	    <propertyfile file="${build}/properties.conf">
+	        <entry key="${public-jar-property}" value="${public-jar-value}/${public-dist}/${public-jar}"/>
+	        <entry key="${server-address-property}" value="${server-address-value}"/>
+	        <entry key="${server-port-property}" value="${server-port-value}"/>
+	        <entry key="${server-name-property}" value="${server-name-value}"/>
+	    </propertyfile>
+		<copy todir="${client-dist}">
+		    <fileset dir="${build}">
+		        <include name="**/*.conf"/>
+		        <include name="${public-jar}"/>
+		        <include name="${client-jar}"/>
+		    </fileset>
+		</copy>
+		<exec executable="cp">
+		    <arg value="client.sh"/>
+		    <arg value="${client-dist}/"/>
+		</exec>
+		<copy todir="${server-dist}">
+		    <fileset dir="${build}">
+		        <include name="**/*.conf"/>
+		        <include name="${public-jar}"/>
+		        <include name="${server-jar}"/>
+		    </fileset>
+		</copy>
+		<exec executable="cp">
+		    <arg value="${basedir}/server.sh"/>
+		    <arg value="${server-dist}/"/>
+		</exec>
+		<copy todir="${public-dist}">
+		    <fileset dir="${build}">
+		        <include name="${public-jar}"/>
+		    </fileset>
+		</copy>
+	</target>
+</project>

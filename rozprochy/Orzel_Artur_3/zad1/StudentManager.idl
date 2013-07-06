@@ -1,0 +1,17 @@
+#ifndef __STUDENT_MANAGER__
+#define __STUDENT_MANAGER__
+
+#include"StudentUtils.idl"
+#include"Utils.idl"
+#include"Student.idl"
+
+module StudentManagement {
+	interface StudentManager {
+		void addStudent(in Student::Student student) raises (Utils::StudentAlreadyExists, Utils::OperationNotAllowed);
+		Student::StudentsSequence findStudents(in StudentUtils::PersonalData personalData);
+		Student::StudentsSequence getStudentsByStudiesTime(in StudentUtils::StudiesTime studiesTime);
+		Student::StudentsSequence getStudentsByLevelOfStudies(in StudentUtils::LevelOfStudies levelOfStudies);
+	};
+};
+
+#endif

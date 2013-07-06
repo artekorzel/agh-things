@@ -1,0 +1,23 @@
+<project name="zad3_chat" default="jar">
+	<property name="src" location="."/>
+	<property name="build" location="build"/>
+	<property name="dist" location="."/>
+
+	<target name="clean">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${build}"/>
+		<javac srcdir="${src}" destdir="${build}" includeAntRuntime="false"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${dist}/${ant.project.name}.jar">
+			<fileset dir="${build}" includes="**/*.class"/>
+			<manifest>
+				<attribute name="Main-Class" value="MulticastChat"/>
+			</manifest>
+		</jar>
+	</target>
+</project>

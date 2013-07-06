@@ -1,0 +1,47 @@
+#ifndef __UTILS__
+#define __UTILS__
+
+module Utils {	
+	enum Month {
+		JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+	};
+
+	enum DayOfWeek {
+		MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
+	};
+
+	struct Date {
+		long day;
+		Month month;
+		long year;
+	};
+
+	typedef sequence<Date> DatesSequence;
+
+	typedef string Subject;
+	
+	struct Time {
+		long hour;
+		long minute;
+	};
+
+	struct TimeOfLesson {
+		Subject subject;
+		Time time;
+	};
+
+	typedef sequence<TimeOfLesson> TimeOfLessonsSequence;
+
+	struct DayOfWeekPlan {
+		DayOfWeek dayOfWeek;
+		TimeOfLessonsSequence dayPlan;
+	};
+	
+	typedef sequence<DayOfWeekPlan> WeekPlan;
+
+	exception StudentAlreadyExists {};
+	
+	exception OperationNotAllowed {};
+};
+
+#endif 

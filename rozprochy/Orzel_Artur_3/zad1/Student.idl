@@ -1,0 +1,41 @@
+#ifndef __STUDENT__
+#define __STUDENT__
+
+#include"StudentUtils.idl"
+#include"Utils.idl"
+
+module Student {
+	interface Student {
+		attribute StudentUtils::YearOfStudies year;
+		attribute StudentUtils::FieldsOfStudy fieldOfStudy;
+		attribute StudentUtils::PersonalData personalData;
+		attribute StudentUtils::StudiesTime studiesTime;
+		attribute StudentUtils::LevelOfStudies levelOfStudies;
+		
+		void updateStudent();
+		void removeStudent();
+	};
+
+	typedef sequence<Student> StudentsSequence;
+
+	interface FullTimeStudent : Student {
+		Utils::WeekPlan getLessonsPlan();
+	};
+
+	interface PartTimeStudent : Student {
+		Utils::DatesSequence getMeetingsDates();
+		Utils::TimeOfLessonsSequence getLessonsPlanByDate(in Utils::Date date);
+	};
+
+	typedef string ThesisTopic;
+
+	interface BachelorStudent : Student {
+		ThesisTopic getBachelorThesis();
+	};
+
+	interface MastersStudent : Student {
+		ThesisTopic getMastersThesis();
+	};
+}; 
+
+#endif

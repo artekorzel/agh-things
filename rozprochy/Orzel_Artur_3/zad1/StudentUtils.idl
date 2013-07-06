@@ -1,0 +1,28 @@
+#ifndef __STUDENT_UTILS__
+#define __STUDENT_UTILS__
+
+module StudentUtils {	
+	enum YearOfStudies {
+		FIRST, SECOND, THIRD, FOURTH, FIFTH
+	};
+
+	enum FieldsOfStudy {
+		COMPUTER_SCIENCE, ELECTRONICS
+	};
+
+	struct PersonalData {
+		string name;
+		string surname;
+		string indexNumber;
+	};
+
+	enum StudiesTime {
+		FULL_TIME, PART_TIME
+	};
+
+	enum LevelOfStudies {
+		BACHELOR, MASTERS
+	};
+}; 
+
+#endif
